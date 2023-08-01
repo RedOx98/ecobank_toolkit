@@ -42,7 +42,7 @@ function Statement({ navigation, route }: StatementProps): JSX.Element {
                 style={styles.logo}
                 source={require('../../assets/Redux.png')}
             /> */}
-            STATEMENT PAGE
+            <Text>STATEMENT PAGE</Text>
         </View>
     );
 }

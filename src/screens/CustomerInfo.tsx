@@ -42,7 +42,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                 style={styles.logo}
                 source={require('../../assets/Redux.png')}
             /> */}
-            CUSTOMER INFORMATION PAGE
+            <Text>CUSTOMER INFORMATION PAGE</Text>
         </View>
     );
 }

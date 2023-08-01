@@ -42,7 +42,7 @@ function ShortCodes({ navigation, route }: ShortCodesProps): JSX.Element {
                 style={styles.logo}
                 source={require('../../assets/Redux.png')}
             /> */}
-            SHORT CODES PAGE
+            <Text>SHORT CODES PAGE</Text>
         </View>
     );
 }

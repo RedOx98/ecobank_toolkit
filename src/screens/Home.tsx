@@ -37,7 +37,7 @@ function Home({ navigation, route }: HomeProps): JSX.Element {
 
     return (
         <View style={styles.body}>
-            HOMEPAGE
+            <Text>HOMEPAGE</Text>
         </View>
     );
 }

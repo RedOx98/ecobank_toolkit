@@ -14,6 +14,8 @@ import {
 import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack';
 
 import { RouteProp } from '@react-navigation/native';
+import Globalstyle from '../utils/Globalstyle';
+import { TextInput } from 'react-native-gesture-handler';
 
 type RootStackParamList = {
     Login: undefined
@@ -45,7 +47,14 @@ function Login({ navigation, route }: LoginProps): JSX.Element {
 
     return (
         <View style={styles.body}>
-            LOGIN PAGE
+            <Image
+                style={styles.logo}
+                source={require('../../assets/eco.png')}
+            />
+            <Text style={[styles.text, Globalstyle.CustomFontH]}>STAFF UTILITY APP</Text>
+
+            <TextInput placeholder="Email" style={[styles.input, Globalstyle.CustomFontInput]} placeholderTextColor="#23557F"/>
+            <TextInput placeholder="Password" style={[styles.input, Globalstyle.CustomFontInput]} placeholderTextColor="#23557F"/>
         </View>
     );
 }
@@ -61,28 +70,30 @@ const styles = StyleSheet.create({
     body: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#0080ff',
+        backgroundColor: '#FFFFFF',
     },
     logo: {
-        width: 200,
-        height: 150,
-        marginTop: 20,
+        width: 287,
+        height: 140,
+        margin: 20,
+        marginTop: 10,
         marginBottom: 10,
     },
     text: {
-        color: '#ffffff',
-        fontSize: 30,
-        marginBottom: 130,
+        color: '#23557F',
+        fontSize: 24,
+        marginTop: -15,
     },
     input: {
         width: 300,
-        borderWidth: 1,
+        borderWidth: 2,
         borderColor: '#555',
         borderRadius: 10,
         backgroundColor: '#ffffff',
         textAlign: 'center',
         fontSize: 20,
         marginBottom: 10,
+        marginTop: 55,
     },
 });
 

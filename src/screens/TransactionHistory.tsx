@@ -40,7 +40,7 @@ function TransactionHistory({ navigation, route }: TransactionHistoryProps): JSX
                 style={styles.logo}
                 source={require('../../assets/Redux.png')}
             /> */}
-            TRANSACTION HISTORY PAGE
+            <Text>TRANSACTION HISTORY PAGE</Text>
         </View>
     );
 }

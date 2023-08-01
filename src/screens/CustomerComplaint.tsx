@@ -36,7 +36,8 @@ function CustomerComplaint({ navigation, route }: CustomerComplaintProps): JSX.E
 
     return (
         <View style={styles.body}>
-            CUSTOMER COMPLAINT PAGE
+
+            <Text>CUSTOMER COMPLAINT PAGE</Text>
         </View>
     );
 }
