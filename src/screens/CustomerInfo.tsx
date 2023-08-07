@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
+import Navbar from '../utils/Navbar';
 
 
 
@@ -42,6 +43,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                 style={styles.logo}
                 source={require('../../assets/Redux.png')}
             /> */}
+            <Navbar/>
             <Text>CUSTOMER INFORMATION PAGE</Text>
         </View>
     );

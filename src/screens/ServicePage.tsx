@@ -18,12 +18,14 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Home from './Home';
 import CustomerComplaint from './CustomerComplaint';
 import Intro from './Intro';
+import ShortCodes from './ShortCodes';
 
 type RootStackParamList = {
     ServicePage: undefined;
     CustomerComplaint: undefined;
     Home: undefined;
-    Intro: undefined
+    Intro: undefined;
+    ShortCodes: undefined;
   };
 
 type ServicePageNavigationProp = StackNavigationProp<RootStackParamList, 'ServicePage'>;
@@ -38,14 +40,15 @@ function ServicePage({ navigation, route }: ServicePageProps): JSX.Element {
     return (
         <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color}) => {
+        tabBarIcon: ({focused}) => {
           let iconName: string = '';
           let size: number = 0;
+          let color: string = 'blue';
           if (route.name === 'Home') {
-            iconName = 'clipboard-list';
-            size = focused ? 25 : 20;
-          } else if (route.name === 'CustomerComplaint') {
-            iconName = 'clipboard-check';
+            iconName = 'home';
+            size = focused ? 15 : 20;
+          } else if (route.name === 'ShortCodes') {
+            iconName = 'paperclip';
             size = focused ? 25 : 20;
           } else if (route.name === 'Intro') {
             iconName = 'clipboard-check';
@@ -56,7 +59,7 @@ function ServicePage({ navigation, route }: ServicePageProps): JSX.Element {
       })
       }>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="CustomerComplaint" component={CustomerComplaint} />
+      <Tab.Screen name="ShortCodes" component={ShortCodes} />
       <Tab.Screen name="Intro" component={Intro} />
     </Tab.Navigator>
     );

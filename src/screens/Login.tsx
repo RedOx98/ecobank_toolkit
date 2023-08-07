@@ -16,6 +16,7 @@ import { StackNavigationProp, createStackNavigator } from '@react-navigation/sta
 import { RouteProp } from '@react-navigation/native';
 import Globalstyle from '../utils/Globalstyle';
 import { TextInput } from 'react-native-gesture-handler';
+import CustomButton from '../utils/CustomButton';
 
 type RootStackParamList = {
     Login: undefined
@@ -53,8 +54,24 @@ function Login({ navigation, route }: LoginProps): JSX.Element {
             />
             <Text style={[styles.text, Globalstyle.CustomFontH]}>STAFF UTILITY APP</Text>
 
-            <TextInput placeholder="Email" style={[styles.input, Globalstyle.CustomFontInput]} placeholderTextColor="#23557F"/>
-            <TextInput placeholder="Password" style={[styles.input, Globalstyle.CustomFontInput]} placeholderTextColor="#23557F"/>
+            <TextInput
+            placeholder="Email address"
+            style={[styles.input, Globalstyle.CustomFontInput]} placeholderTextColor="#23557F"
+            />
+            <TextInput
+            placeholder="Password"
+            style={[styles.input, Globalstyle.CustomFontInput]} placeholderTextColor="#23557F"
+            secureTextEntry
+            />
+
+            <CustomButton title="Login" color="#23557F" />
+
+            <Text
+            style={[styles.textbot, Globalstyle.CustomFontHighlight]}
+            >Do not have an account?</Text>
+            <Text style={[styles.textbot, Globalstyle.CustomFontHighlight]}>contact administrator</Text>
+
+            <Text style={[styles.footer, Globalstyle.CustomFontHighlight]}>Ecobank Nigeria @ 2023</Text>
         </View>
     );
 }
@@ -84,6 +101,15 @@ const styles = StyleSheet.create({
         fontSize: 24,
         marginTop: -15,
     },
+    textbot: {
+        color: '#23557F',
+        margin: 10,
+    },
+    footer: {
+        color: '#23557F',
+        fontSize: 18,
+        margin: 90,
+    },
     input: {
         width: 300,
         borderWidth: 2,
@@ -94,6 +120,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginBottom: 10,
         marginTop: 55,
+        color: '#000000',
     },
 });
 

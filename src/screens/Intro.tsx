@@ -24,6 +24,10 @@ type RootStackParamList = {
     Login: undefined
     ServicePage: undefined
     Home: undefined
+    TransactionHistory: undefined
+    ShortCodes: undefined
+    CustomerComplaint: undefined
+    Statement: undefined
 };
 
 type IntroNavigationProp = StackNavigationProp<RootStackParamList, 'Intro'>
@@ -39,7 +43,7 @@ function Intro({ navigation, route }: IntroProps): JSX.Element {
     useEffect(() => {
         //Call your function inside here
         setTimeout(() => {
-            navigation.replace('Login');
+            navigation.replace('Statement');
         }, 5000);
     }, []);
 
@@ -47,7 +51,7 @@ function Intro({ navigation, route }: IntroProps): JSX.Element {
         <View style={styles.body}>
             <Image
                 style={styles.logo}
-                source={require('../../assets/eco.png')}
+                source={require('../../assets/eco.jpg')}
             />
             <Text style={[styles.text, Globalstyle.CustomFont]}>UTILITY APP</Text>
         </View>
