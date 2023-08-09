@@ -28,6 +28,7 @@ type RootStackParamList = {
     ShortCodes: undefined
     CustomerComplaint: undefined
     Statement: undefined
+    CustomerInfo: undefined
 };
 
 type IntroNavigationProp = StackNavigationProp<RootStackParamList, 'Intro'>
@@ -43,7 +44,7 @@ function Intro({ navigation, route }: IntroProps): JSX.Element {
     useEffect(() => {
         //Call your function inside here
         setTimeout(() => {
-            navigation.replace('Statement');
+            navigation.replace('CustomerInfo');
         }, 5000);
     }, []);
 

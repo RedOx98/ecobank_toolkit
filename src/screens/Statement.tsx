@@ -13,6 +13,7 @@ import {
     ScrollView,
     Pressable,
     TextInput,
+    Modal,
 } from 'react-native';
 import { StackNavigationProp, createStackNavigator } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
@@ -28,6 +29,7 @@ type RootStackParamList = {
     CustomerInfo: undefined
     ShortCodes: undefined
     Statement: undefined
+    ServicePage: undefined
 };
 
 type StatementNavigationProp = StackNavigationProp<RootStackParamList, 'Statement'>
@@ -38,6 +40,13 @@ type StatementProps = {
 };
 
 function Statement({ navigation, route }: StatementProps): JSX.Element {
+
+    const onPress = ()=> {
+        navigation.replace('ServicePage');
+    };
+
+    const [showModal, setShowModal] = useState<boolean>(false);
+    const [display, setDisplay] = useState<boolean>(false);
 
 
     useEffect(() => {
@@ -52,6 +61,24 @@ function Statement({ navigation, route }: StatementProps): JSX.Element {
                 source={require('../../assets/Redux.png')}
             /> */}
             <Navbar/>
+            <Modal
+                visible={showModal}
+                transparent
+                animationType="slide"
+                onRequestClose={()=> {
+                    setShowModal(false);
+                }}
+            >
+                <View style={styles.centered}>
+                <View style={styles.modal}>
+                    <Image
+                style={styles.logo}
+                source={require('../../assets/ecompleted.jpg')}
+            />
+                    <CustomButton title="OK" color="#23557F" style={[styles.modalbutton]} onPressHandler={onPress}/>
+                </View>
+                </View>
+            </Modal>
             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Statement</Text>
 
             <Text style={[styles.headerOutline, Globalstyle.CustomFontHeaderB]}>Time Frame</Text>
@@ -154,6 +181,9 @@ function Statement({ navigation, route }: StatementProps): JSX.Element {
                 hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
                 android_ripple={{ color: '#13CB47', radius: 135 }}
                 style={styles.lastbutton}
+                onPress={()=> {
+                    setShowModal(true);
+                }}
                 >
                 <Text style={[styles.text2, Globalstyle.CustomFontHeader]}>
                     Send Statement
@@ -198,6 +228,15 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: -11,
         marginLeft: -220,
+    },
+    logo: {
+        width: 190,
+        height: 190,
+        margin: 20,
+        marginTop: -5,
+        marginBottom: 10,
+        objectFit: 'cover',
+        borderRadius: 20,
     },
     left: {
         flex: 2,
@@ -276,6 +315,20 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         marginRight: 4,
     },
+    modalbutton: {
+        display: 'flex',
+        flexDirection: 'row',
+        width: 125,
+        height: 45,
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: -5,
+        backgroundColor: '#D9D9D999',
+        marginLeft: 5,
+        marginRight: 4,
+        borderWidth: 0,
+    },
     lastbutton: {
         display: 'flex',
         flexDirection: 'row',
@@ -322,6 +375,44 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between',
+    },
+    modal: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: 280,
+        height: 260,
+        padding: 5,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        // gap: 10,
+        // position: 'absolute',
+        // top: 250,
+        // bottom: 0,
+        // // left: 10,
+        // right: 40,
+    },
+    centered: {
+        // flex:1,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        width: 280,
+        height: 260,
+        padding: 5,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        gap: 10,
+        backgroundColor: '#23557F99',
+        position: 'absolute',
+        top: 336,
+        bottom: 0,
+        borderRadius: 10,
+        // left: 10,
+        right: 55,
+        borderWidth: 3,
+        borderColor: '#D9D9D999',
+        shadowColor: '0px 4px 12px 0px rgba(131, 136, 157, 0.16)',
     },
 });
 
