@@ -10,7 +10,7 @@ interface PressableProps {
     name?: string;
 }
 
-const Navbar: React.FC<PressableProps> = ({ name }) => {
+const Navbar: React.FC<PressableProps> = ({ name, onPressHandler }) => {
     return (
         <View style={styles.body}>
             <View style={styles.nav_item1}>
@@ -27,6 +27,7 @@ const Navbar: React.FC<PressableProps> = ({ name }) => {
                 hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
                 android_ripple={{ color: '#D9D9D9', radius: 60 }}
                 style={styles.button}
+                onPress={onPressHandler}
                 >
                     <View >
                 <FontAwesome5 name={'arrow-right'} color={'#FFFFFF'} size={25} />

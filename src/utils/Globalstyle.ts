@@ -29,6 +29,10 @@ export default StyleSheet.create({
         fontSize: 20,
         fontFamily: 'NotoSans-ExtraBold',
     },
+    CustomFontHeaderV: {
+        fontSize: 18,
+        fontFamily: 'NotoSans-ExtraBold',
+    },
     CustomFontS: {
         fontSize: 13,
         fontFamily: 'NotoSans-ExtraBold',

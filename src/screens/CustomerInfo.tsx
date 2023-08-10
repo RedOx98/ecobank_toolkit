@@ -29,6 +29,8 @@ type RootStackParamList = {
     ShortCodes: undefined
     Statement: undefined
     TransactionHistory: undefined
+    Navbar: undefined
+    Login: undefined
 };
 
 type CustomerInfoNavigationProp = StackNavigationProp<RootStackParamList, 'CustomerInfo'>
@@ -48,6 +50,10 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
         navigation.navigate('TransactionHistory');
     };
 
+    const gotoLogin = () => {
+        navigation.navigate('Login');
+    };
+
 
     useEffect(() => {
         //Call your function inside here
@@ -55,7 +61,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Navbar />
+            <Navbar onPressHandler={gotoLogin}/>
             <ScrollView
                 style={styles.horizontal}
                 horizontal
@@ -73,7 +79,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Cust. Name: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> O Onimole</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> O Onimole</Text>
                             </View>
                         </View>
                         <View style={styles.customertext}>
@@ -81,7 +87,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Acct No: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> 123456789</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> 123456789</Text>
                             </View>
                         </View>
                         <View style={styles.customertext}>
@@ -89,7 +95,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Cust. No: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> 123233</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> 123233</Text>
                             </View>
                         </View>
                         <View style={styles.customertext}>
@@ -97,7 +103,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Acct. Type: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> Current</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> Current</Text>
                             </View>
                         </View>
                         <View style={styles.customertext}>
@@ -105,7 +111,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Tier: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> 3</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> 3</Text>
                             </View>
                         </View>
                     </View>
@@ -115,7 +121,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Cust. Name: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> O Hammed</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> O Hammed</Text>
                             </View>
                         </View>
                         <View style={styles.customertext}>
@@ -123,7 +129,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Acct No: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> 123456789</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> 123456789</Text>
                             </View>
                         </View>
                         <View style={styles.customertext}>
@@ -131,7 +137,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Cust. No: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> 123233</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> 123233</Text>
                             </View>
                         </View>
                         <View style={styles.customertext}>
@@ -139,7 +145,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Acct Type: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> Current</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> Current</Text>
                             </View>
                         </View>
                         <View style={styles.customertext}>
@@ -147,7 +153,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Tier: </Text>
                             </View>
                             <View style={styles.right}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> 3</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> 3</Text>
                             </View>
                         </View>
                     </View>
@@ -165,7 +171,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Email: </Text>
                             </View>
                             <View style={styles.rightmid}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> Ola******@e*******.com</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> Ola******@e*******.com</Text>
                             </View>
                         </View>
                         <View style={styles.customertextmid}>
@@ -173,7 +179,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Acct No: </Text>
                             </View>
                             <View style={styles.rightmid}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> 123456789</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> 123456789</Text>
                             </View>
                         </View>
                         <View style={styles.customertextmid}>
@@ -181,7 +187,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Cust. No: </Text>
                             </View>
                             <View style={styles.rightmid}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> 123233</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> 123233</Text>
                             </View>
                         </View>
                         <View style={styles.customertextmid}>
@@ -189,7 +195,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Acct Type: </Text>
                             </View>
                             <View style={styles.rightmid}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> Current</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> Current</Text>
                             </View>
                         </View>
                         <View style={styles.customertextmid}>
@@ -197,7 +203,7 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                             <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}>Tier: </Text>
                             </View>
                             <View style={styles.rightmid}>
-                            <Text style={[styles.header, Globalstyle.CustomFontHeaderB]}> 3</Text>
+                            <Text style={[styles.header, Globalstyle.CustomFontHeaderV]}> 3</Text>
                             </View>
                         </View>
                     </View>
@@ -318,7 +324,6 @@ const styles = StyleSheet.create({
         flex: 0.5,
         marginTop: -70,
         display: 'flex',
-        // alignItems: 'center'
     },
     horizontal_body: {
         display: 'flex',
@@ -328,7 +333,7 @@ const styles = StyleSheet.create({
     },
     header: {
         color: '#23557F',
-        marginTop: 10,
+        marginTop: 30,
         marginBottom: -11,
     },
     body: {
@@ -366,33 +371,43 @@ const styles = StyleSheet.create({
         width: 350,
         height: 285,
         marginRight: 10,
-        marginTop: 145,
+        marginTop: 160,
         marginLeft: 20,
         borderRadius: 10,
         backgroundColor: '#D9D9D990',
         alignItems: 'center',
         justifyContent: 'space-around',
         padding: 5,
+        elevation: 0.1,
+        shadowOffset: { width: -0.5, height: 0},
+        shadowColor: 'rgba(0, 0, 0, 0.15)',
+        shadowOpacity: 1,
+        shadowRadius: 1 ,
     },
     customerinfomid: {
         flex: 3,
         width: 390,
         height: 285,
         marginLeft: 5,
-        marginTop: 5,
+        marginTop: -10,
         marginBottom: 10,
         borderRadius: 10,
         backgroundColor: '#D9D9D999',
         alignItems: 'center',
         justifyContent: 'space-around',
         padding: 5,
+        elevation: 0.1,
+        shadowOffset: { width: -0.5, height: 0},
+        shadowColor: 'rgba(0, 0, 0, 0.15)',
+        shadowOpacity: 1,
+        shadowRadius: 1 ,
     },
     customerinfobottom: {
         flex: 3,
         width: 360,
         height: 285,
         marginLeft: 50,
-        marginTop: 120,
+        marginTop: 140,
         marginBottom: 10,
         borderRadius: 10,
         marginRight: 20,
@@ -406,7 +421,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 15,
+        marginTop: 10,
         height: 60,
         marginLeft: 10,
     },
@@ -414,7 +429,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 40,
+        marginTop: 25,
+        marginBottom: 35,
         height: 60,
         marginLeft: 10,
     },
@@ -429,13 +445,15 @@ const styles = StyleSheet.create({
     },
     rightmid: {
         flex: 3,
-        marginTop: -45,
+        marginTop: -15,
         marginRight: 5,
         width: 380,
+        height: 80,
     },
     leftmid: {
         flex: 2,
-        marginTop: -45,
+        marginTop: -10,
+        height: 80,
     },
     thirdrow: {
         display: 'flex',
