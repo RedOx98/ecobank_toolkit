@@ -11,7 +11,7 @@ export default StyleSheet.create({
         fontFamily: 'NotoSans-ExtraLightItalic',
     },
     CustomFontH: {
-        fontSize: 24,
+        fontSize: 20,
         fontFamily: 'NotoSans-Medium',
     },
     CustomFontInput: {

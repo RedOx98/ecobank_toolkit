@@ -20,7 +20,7 @@ import CustomButton from '../utils/CustomButton';
 
 type RootStackParamList = {
     Login: undefined
-    Home: undefined
+    ServicePage: undefined
 };
 
 type LoginNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>
@@ -43,6 +43,10 @@ function Login({ navigation, route }: LoginProps): JSX.Element {
         // call your functions inside this body
     }, []);
 
+    const gotoHome = () => {
+        navigation.navigate('ServicePage');
+    };
+
 
 
 
@@ -64,7 +68,7 @@ function Login({ navigation, route }: LoginProps): JSX.Element {
             secureTextEntry
             />
 
-            <CustomButton title="Login" color="#23557F" />
+            <CustomButton title="Login" color="#23557F" onPressHandler={gotoHome}/>
 
             <Text
             style={[styles.textbot, Globalstyle.CustomFontHighlight]}

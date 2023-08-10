@@ -33,6 +33,7 @@ type RootStackParamList = {
     ServicePage: undefined
     Statement: undefined
     ShortCodes: undefined
+    CustomerComplaint: undefined
 };
 
 type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
@@ -46,6 +47,10 @@ function Home({ navigation, route }: HomeProps): JSX.Element {
 
     const onPress = ()=> {
         navigation.navigate('CustomerInfo');
+    };
+
+    const gotoComplaint = () => {
+        navigation.navigate('CustomerComplaint');
     };
 
     const [showModal, setShowModal] = useState<boolean>(false);
@@ -152,7 +157,7 @@ function Home({ navigation, route }: HomeProps): JSX.Element {
                 // style={styles.button}
                 >
                     <View style={styles.item2}>
-                        <Text style={[styles.text, Globalstyle.CustomFontH]}>Quick Link</Text>
+                        <Text style={[styles.text1, Globalstyle.CustomFontH]}>Quick Link</Text>
                         <View >
                             <FontAwesome5 name={'caret-down'} color={'#000000'} size={25} />
                         </View>
@@ -164,7 +169,9 @@ function Home({ navigation, route }: HomeProps): JSX.Element {
                 // style={styles.button}
                 >
                     <View style={styles.item3}>
-                        <Text style={[styles.text, Globalstyle.CustomFontH]}>Log Customer Complaint</Text>
+                        <Text
+                        onPress={gotoComplaint}
+                        style={[styles.text3, Globalstyle.CustomFontH]}>Log Customer Complaint</Text>
                     </View>
                 </Pressable>
             </View>
@@ -209,7 +216,17 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#23557F',
+        // marginLeft:
+    },
+    text1: {
+        color: '#23557F',
         fontSize: 15,
+        marginLeft: -30,
+    },
+    text3: {
+        color: '#23557F',
+        fontSize: 15,
+        marginLeft: -3,
     },
     item1: {
         display: 'flex',
@@ -236,7 +253,7 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
     item3: {
-        width: 337,
+        width: 295,
         height: 50,
         backgroundColor: '#D9D9D9',
         borderTopRightRadius: 60,

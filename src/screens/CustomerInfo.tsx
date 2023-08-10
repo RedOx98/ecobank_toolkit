@@ -20,6 +20,7 @@ import { StackNavigationProp, createStackNavigator } from '@react-navigation/sta
 import { RouteProp } from '@react-navigation/native';
 import Navbar from '../utils/Navbar';
 import Globalstyle from '../utils/Globalstyle';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 
 
@@ -27,6 +28,7 @@ type RootStackParamList = {
     CustomerInfo: undefined
     ShortCodes: undefined
     Statement: undefined
+    TransactionHistory: undefined
 };
 
 type CustomerInfoNavigationProp = StackNavigationProp<RootStackParamList, 'CustomerInfo'>
@@ -37,6 +39,14 @@ type CustomerInfoProps = {
 };
 
 function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
+
+    const gotoStatement = () => {
+        navigation.navigate('Statement');
+    };
+
+    const gotoTransactionHistory = () => {
+        navigation.navigate('TransactionHistory');
+    };
 
 
     useEffect(() => {
@@ -51,12 +61,12 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
                 horizontal
             >
                 <View style={styles.horizontal_body}>
-                    <View style={styles.scroll_image}>
+                    {/* <View style={styles.scroll_image}>
                         <Image
                             style={styles.logo}
                             source={require('../../assets/ecos.png')}
                         />
-                    </View>
+                    </View> */}
                     <View style={styles.customerinfo}>
                         <View style={styles.customertext}>
                             <View style={styles.left}>
@@ -194,15 +204,96 @@ function CustomerInfo({ navigation, route }: CustomerInfoProps): JSX.Element {
 
                     <View style={styles.customerinfobottom}>
                     <View style={styles.thirdrow}>
-                <View style={styles.bottoms}>
+                <View>
+                <Pressable
+                hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+                android_ripple={{ color: '#13CB47', radius: 135 }}
+                style={styles.lastbutton3}
+                onPress={gotoTransactionHistory}
+                >
+                <View>
+                    <Text style={[styles.text2, Globalstyle.CustomFontHeader]}>
+                    Transaction History
+                </Text>
+                </View>
+                <View style={styles.lasticon}>
+                <FontAwesome5 name={'clock'} color={'#000000'} size={35} />
+                </View>
+                </Pressable>
+                </View>
+                </View>
+                <View style={styles.thirdrow}>
+                <View>
                 <Pressable
                 hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
                 android_ripple={{ color: '#13CB47', radius: 135 }}
                 style={styles.lastbutton3}
                 >
-                <Text style={[styles.text2, Globalstyle.CustomFontHeader]}>
+                <View>
+                    <Text style={[styles.text2, Globalstyle.CustomFontHeader]}>
+                    Loan Status: Active
+                </Text>
+                </View>
+                <View style={styles.lasticon}>
+                <FontAwesome5 name={'calendar'} color={'#000000'} size={35} />
+                </View>
+                </Pressable>
+                </View>
+                </View>
+                <View style={styles.thirdrow}>
+                <View>
+                <Pressable
+                hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+                android_ripple={{ color: '#13CB47', radius: 135 }}
+                style={styles.lastbutton3}
+                >
+                <View>
+                    <Text style={[styles.text2, Globalstyle.CustomFontHeader]}>
                     Lien Details
                 </Text>
+                </View>
+                <View style={styles.lasticon}>
+                <FontAwesome5 name={'calculator'} color={'#000000'} size={35} />
+                </View>
+                </Pressable>
+                </View>
+                </View>
+                <View
+                style={styles.thirdrow}
+                >
+                <View>
+                <Pressable
+                hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+                android_ripple={{ color: '#13CB47', radius: 135 }}
+                style={styles.lastbutton3}
+                onPress={gotoStatement}
+                >
+                <View>
+                    <Text style={[styles.text2, Globalstyle.CustomFontHeader]}>
+                    Send Statement
+                </Text>
+                </View>
+                <View style={styles.lasticon}>
+                <FontAwesome5 name={'scroll'} color={'#000000'} size={35} />
+                </View>
+                </Pressable>
+                </View>
+                </View>
+                <View style={styles.thirdrow}>
+                <View>
+                <Pressable
+                hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+                android_ripple={{ color: '#13CB47', radius: 135 }}
+                style={styles.lastbutton3}
+                >
+                <View>
+                    <Text style={[styles.text2, Globalstyle.CustomFontHeader]}>
+                    PND
+                </Text>
+                </View>
+                <View style={styles.lasticon}>
+                <FontAwesome5 name={'lock'} color={'#000000'} size={35} />
+                </View>
                 </Pressable>
                 </View>
                 </View>
@@ -225,7 +316,6 @@ const styles = StyleSheet.create({
         width: 420,
         height: 400,
         flex: 0.5,
-        // borderWidth: 2,
         marginTop: -70,
         display: 'flex',
         // alignItems: 'center'
@@ -234,12 +324,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        // justifyContent: 'center',
-        // gap: 15,
-        // borderWidth: 0.5,
-        // flex: 1,
-        // width: 415,
-        // marginLeft: 10,
         marginTop: -100,
     },
     header: {
@@ -272,7 +356,6 @@ const styles = StyleSheet.create({
     scroll_image: {
         flex: 0.1,
         marginRight: 30,
-        // backgroundColor: '#D9D9D999',
         borderRadius: 20,
         marginLeft: 20,
         height: 100,
@@ -282,9 +365,9 @@ const styles = StyleSheet.create({
         flex: 3,
         width: 350,
         height: 285,
-        // borderWidth: 2,
         marginRight: 10,
         marginTop: 145,
+        marginLeft: 20,
         borderRadius: 10,
         backgroundColor: '#D9D9D990',
         alignItems: 'center',
@@ -295,7 +378,6 @@ const styles = StyleSheet.create({
         flex: 3,
         width: 390,
         height: 285,
-        // borderWidth: 2,
         marginLeft: 5,
         marginTop: 5,
         marginBottom: 10,
@@ -309,42 +391,32 @@ const styles = StyleSheet.create({
         flex: 3,
         width: 360,
         height: 285,
-        borderWidth: 2,
         marginLeft: 50,
-        marginTop: 30,
+        marginTop: 120,
         marginBottom: 10,
         borderRadius: 10,
         marginRight: 20,
-        // backgroundColor: '#D9D9D999',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 5,
+        display: 'flex',
+        flexDirection: 'column',
     },
     customertext: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        // borderWidth: 2,
         marginTop: 15,
-        // marginBottom: 0,
         height: 60,
-        // marginTop: 5,
         marginLeft: 10,
     },
     customertextmid: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        // borderWidth: 2,
         marginTop: 40,
-        // marginBottom: 0,
         height: 60,
-        // marginTop: 5,
         marginLeft: 10,
-    },
-    aligntext: {
-        display: 'flex',
-        flexDirection: 'row',
     },
     right: {
         flex: 1.5,
@@ -367,8 +439,10 @@ const styles = StyleSheet.create({
     },
     thirdrow: {
         display: 'flex',
-        flexDirection: 'column',
-        marginTop: 100,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 80,
     },
     button: {
         display: 'flex',
@@ -392,34 +466,7 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         textAlign: 'auto',
     },
-    lastbutton1: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: 345,
-        height: 60,
-        borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 8,
-        backgroundColor: '#23557FB2',
-        marginLeft: 55,
-        // marginRight: -35,
-        // marginBottom: 65,
-    },
-    lastbutton2: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: 345,
-        height: 60,
-        borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: -35,
-        backgroundColor: '#23557FB2',
-        marginLeft: 55,
-        // marginRight: -35,
-        // marginBottom: 40,
-    },
+
     lastbutton3: {
         display: 'flex',
         flexDirection: 'row',
@@ -428,39 +475,15 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: -75,
-        backgroundColor: '#23557FB2',
-        marginLeft: -34,
-        // marginRight: -35,
+        marginTop: -140,
+        backgroundColor: '#D9D9D999',
+        marginLeft: 1,
+        marginRight: 32,
         marginBottom: 40,
+        gap: 40,
     },
-    lastbutton4: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: 345,
-        height: 60,
-        borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: -35,
-        backgroundColor: '#23557FB2',
-        marginLeft: 55,
-        // marginRight: -35,
-        // marginBottom: 40,
-    },
-    lastbutton5: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: 345,
-        height: 60,
-        borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: -35,
-        backgroundColor: '#23557FB2',
-        marginLeft: 55,
-        // marginRight: -35,
-        // marginBottom: 40,
+    lasticon: {
+        marginRight: 30,
     },
     lastinputfield: {
         width: 385,
@@ -474,27 +497,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
     },
-    input2: {
-        width: 360,
-        height: 65,
-        borderRadius: 45,
-        backgroundColor: '#D9D9D9',
-        textAlign: 'left',
-        fontSize: 15,
-        marginBottom: 10,
-        marginTop: 15,
-        marginLeft: 135,
-        color: '#000000',
-    },
     bottom: {
         marginLeft: -160,
         marginBottom: 50,
     },
     top: {
         marginLeft: -160,
-    },
-    top2: {
-        marginLeft: -290,
     },
 });
 

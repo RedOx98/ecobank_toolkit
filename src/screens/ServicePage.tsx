@@ -46,12 +46,12 @@ function ServicePage({ navigation, route }: ServicePageProps): JSX.Element {
           let color: string = 'blue';
           if (route.name === 'Home') {
             iconName = 'home';
-            size = focused ? 15 : 20;
-          } else if (route.name === 'ShortCodes') {
-            iconName = 'paperclip';
             size = focused ? 25 : 20;
-          } else if (route.name === 'Intro') {
-            iconName = 'clipboard-check';
+          } else if (route.name === 'ShortCodes') {
+            iconName = 'link';
+            size = focused ? 25 : 20;
+          } else if (route.name === 'CustomerComplaint') {
+            iconName = 'question';
             size = focused ? 25 : 20;
           }
           return <FontAwesome5 name={iconName} color={color} size={size} />;
@@ -60,7 +60,7 @@ function ServicePage({ navigation, route }: ServicePageProps): JSX.Element {
       }>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="ShortCodes" component={ShortCodes} />
-      <Tab.Screen name="Intro" component={Intro} />
+      <Tab.Screen name="CustomerComplaint" component={CustomerComplaint} />
     </Tab.Navigator>
     );
 }

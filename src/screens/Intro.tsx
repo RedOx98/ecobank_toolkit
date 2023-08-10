@@ -44,7 +44,7 @@ function Intro({ navigation, route }: IntroProps): JSX.Element {
     useEffect(() => {
         //Call your function inside here
         setTimeout(() => {
-            navigation.replace('CustomerInfo');
+            navigation.replace('Login');
         }, 5000);
     }, []);
 

@@ -41,7 +41,7 @@ function ShortCodes({ navigation, route }: ShortCodesProps): JSX.Element {
     }, []);
 
     return (
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.body}>
             {/* <Image
                 style={styles.logo}
@@ -106,6 +106,13 @@ function ShortCodes({ navigation, route }: ShortCodesProps): JSX.Element {
 
 
 const styles = StyleSheet.create({
+    container: {
+        flexGrow: 1,
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF',
+        display: 'flex',
+        flexDirection: 'column',
+    },
     body: {
         flex: 1,
         alignItems: 'flex-start',
